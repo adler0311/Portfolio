@@ -33,6 +33,10 @@ const Hero = styled("div")`
     border-radius: 10px;
   }
 
+  p {
+    width: 200px;
+  }
+
   h1 {
     margin-bottom: 1em;
 

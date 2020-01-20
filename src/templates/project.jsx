@@ -24,15 +24,26 @@ const ProjectHeroContainer = styled("div")`
 `
 
 const ProjectTitle = styled("div")`
-  max-width: 550px;
+  max-width: 650px;
   margin: 0 auto;
   text-align: center;
+`
+
+const ProjectCategoryContainer = styled("div")`
+  max-width: 550px;
+  margin: 0 auto;
+  margin-bottom: 3em;
+`
+
+const ProjectCategory = styled("span")`
+  background-color: ${colors.grey300};
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
 `
 
 const ProjectBody = styled("div")`
   max-width: 550px;
   margin: 0 auto;
-
   .block-img {
     margin-top: 3.5em;
     margin-bottom: 0.5em;
@@ -97,6 +108,13 @@ const Project = ({ project, meta }) => {
             <img src={project.project_hero_image.url} alt="bees" />
           </ProjectHeroContainer>
         )}
+
+        <ProjectCategoryContainer>
+          {project.project_category.map(c => (
+            <ProjectCategory>{c.text}</ProjectCategory>
+          ))}
+        </ProjectCategoryContainer>
+
         <ProjectBody>
           {RichText.render(project.project_description)}
           <WorkLink to={"/work"}>
